@@ -1,3 +1,10 @@
+/*
+     * (Santiago Garcia II)
+     * (PlayerShipController.cs)
+     * (Assignment 2)
+     * (This scripts uses design pattern to give the player input and switch weapon types)
+*/
+
 using UnityEngine;
 using System.Collections;
 
@@ -21,7 +28,9 @@ public class PlayerShipController : MonoBehaviour
 	public Flame flameColor;
     public float maxSpeed = 5f;
     public float rotationSpeed = 180f;
-
+    private float shipBoundaryRaduis = 0.8f;
+    public float fireDelay = 0.25f;
+    private float cooldownTimer = 0;
     private IWeapon iWeapon;
 	private IFlame iFlame;	
 		
@@ -29,10 +38,11 @@ public class PlayerShipController : MonoBehaviour
 	private void HandleWeaponType()
     {
 	 
-		//To prevent Unity from creating multiple copies of the same component in inspector at runtime
+		//To prevent Unity from creating multiple copies of the same component in inspector at runtime when spawning the missle 
 		Component c = gameObject.GetComponent<IWeapon>() as Component;
-		
-		if(c!=null){
+       
+		if(c!=null)
+        {
 				Destroy(c);
 		}
 	
@@ -42,15 +52,19 @@ public class PlayerShipController : MonoBehaviour
 		
 			case WeaponType.Missile:
 				iWeapon = gameObject.AddComponent<Missile> ();
-				break;
+                Instantiate(c, transform.position, transform.rotation);
+                break;
 				
 			case WeaponType.Bullet:
 				iWeapon = gameObject.AddComponent<Bullet> ();
-				break;
+                Instantiate(c, transform.position, transform.rotation);
+                break;
 				
 			default:
 				iWeapon = gameObject.AddComponent<Bullet> ();
-				break;
+                Instantiate(c, transform.position, transform.rotation);
+                break;
+
 		}
 		
 	}
@@ -85,8 +99,10 @@ public class PlayerShipController : MonoBehaviour
 	}
 	
 	public void Fire()
-    {	
-		iWeapon.Shoot();// calling Iweapon interface
+    {
+       
+        iWeapon.Shoot();// calling Iweapon interface
+        
 	}
 	
 	void Start(){
@@ -98,11 +114,9 @@ public class PlayerShipController : MonoBehaviour
 		
 	void Update () 
     {
-        //MOVES THE SHIP UP AND DOWN
-        Vector3 pos = transform.position;
-        pos.y += Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime;
-        transform.position = pos;
-
+       
+  
+   
         //ROTATES THE SHIP
         //grab our rotation quaternion
         Quaternion rot = transform.rotation;
@@ -119,11 +133,58 @@ public class PlayerShipController : MonoBehaviour
         //feed the quaternion into our rotation
         transform.rotation = rot;
 
+        //MOVES THE SHIP UP AND DOWN
+        Vector3 pos = transform.position;
+        Vector3 velocity = new Vector3(0, Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime, 0);
+
+        
+        pos += rot * velocity;
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        // RESTICTING PLAYER TO CAMERA BOUNDRIES
+
+        //vertical 
+        if(pos.y + shipBoundaryRaduis > Camera.main.orthographicSize)
+        {
+            pos.y = Camera.main.orthographicSize - shipBoundaryRaduis;
+        }
+        if (pos.y - shipBoundaryRaduis < -Camera.main.orthographicSize)
+        {
+            pos.y = -Camera.main.orthographicSize + shipBoundaryRaduis;
+        }
+        
+        
+        //calculate the orthographic width based on the players screen ratio 
+        float screenRatio = (float)Screen.width / (float)Screen.height;
+        float widthOrtho = Camera.main.orthographicSize * screenRatio;
+        //horziontal bounds 
+        if (pos.x+shipBoundaryRaduis > widthOrtho)
+        {
+            pos.x = widthOrtho - shipBoundaryRaduis;
+        }
+        if (pos.x - shipBoundaryRaduis < -widthOrtho)
+        {
+            pos.x = -widthOrtho + shipBoundaryRaduis;
+        }
+        //update playership position
+        transform.position = pos;
+
+
+        cooldownTimer -= Time.deltaTime;
+
+
+
+
+
+
+
+
+
+        if (Input.GetButton("Fire1") && cooldownTimer <=0)
         {
 			Fire();
+            cooldownTimer = fireDelay;
 		}
 		
 		//to check the value of weaponType in the inspector while in play mode

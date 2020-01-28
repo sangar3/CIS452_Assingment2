@@ -6,18 +6,12 @@ public class FlameManager : MonoBehaviour
 	
 }
 
-public interface IFlame
-{
-	
-	void ShowFlame();
-	void DestroyFlame();
-}
-
 public class BlueFlame:MonoBehaviour,IFlame
 {
 			
 	private GameObject flame;
-	public void ShowFlame(){
+	public void ShowFlame()
+    {
 	
 		GameObject blueFlame = Instantiate(Resources.Load("Flame-blue",typeof(GameObject))) as GameObject;
 		flame = blueFlame;
@@ -33,13 +27,15 @@ public class RedFlame:MonoBehaviour,IFlame
 {
 	
 	private GameObject flame;
-	public void ShowFlame(){	
+	public void ShowFlame()
+    {	
 		GameObject redFlame = Instantiate(Resources.Load("Flame-red",typeof(GameObject))) as GameObject;
 		flame = redFlame;
 		redFlame.transform.parent=transform;		
 	}
 	
-	public void DestroyFlame(){
+	public void DestroyFlame()
+    {
 		Destroy(flame);
 	}
 }
