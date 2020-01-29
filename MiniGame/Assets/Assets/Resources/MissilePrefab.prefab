@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5082766}
   - component: {fileID: -4849115254849591425}
   - component: {fileID: 3534241095439239736}
+  - component: {fileID: -9056327892666289478}
   m_Layer: 8
   m_Name: MissilePrefab
   m_TagString: AlienBullet
@@ -144,3 +145,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   invulnPeriod: 0
+--- !u!114 &-9056327892666289478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4484add2821713943ae51bde1cd96cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 5

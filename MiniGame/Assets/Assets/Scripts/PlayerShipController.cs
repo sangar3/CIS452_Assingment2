@@ -52,17 +52,17 @@ public class PlayerShipController : MonoBehaviour
 		
 			case WeaponType.Missile:
 				iWeapon = gameObject.AddComponent<Missile> ();
-                Instantiate(c, transform.position, transform.rotation);
+               
                 break;
 				
 			case WeaponType.Bullet:
 				iWeapon = gameObject.AddComponent<Bullet> ();
-                Instantiate(c, transform.position, transform.rotation);
+               
                 break;
 				
 			default:
 				iWeapon = gameObject.AddComponent<Bullet> ();
-                Instantiate(c, transform.position, transform.rotation);
+                
                 break;
 
 		}
