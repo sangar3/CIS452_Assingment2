@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*
+		 * (Santiago Garcia II)
+		 * ( EnemyDamageHandler.cs)
+		 * (Assignment2)
+		 * (keeps track of when enemeies are destroyed by played and updates the score)
+	*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

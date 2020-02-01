@@ -1,4 +1,12 @@
-﻿using System.Collections;
+﻿/*
+		 * (Santiago Garcia II)
+		 * (  PlayerSpawner.cs)
+		 * (Assignment2)
+		 * (Spawns the player, updates the lives/score )
+	*/
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
