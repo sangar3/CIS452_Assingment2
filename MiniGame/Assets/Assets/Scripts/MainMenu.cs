@@ -9,4 +9,8 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("SpaceShooter");
     }
+    public void backmainmenu()
+    {
+        SceneManager.LoadScene("StartTutorial");
+    }
 }

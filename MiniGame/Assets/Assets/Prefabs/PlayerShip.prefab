@@ -100,7 +100,7 @@ MonoBehaviour:
   playershootingsfx: {fileID: 8300000, guid: fbddfda5bcdc1b24baa52fb43fe6f0a1, type: 3}
   bulletOffset: {x: 0, y: 0.5, z: 0}
   bulletPrefab: {fileID: 191998, guid: 52bb7162022396244a07b1610d5d96a1, type: 3}
-  fireDelay: 0.25
+  fireDelay: 0.2
 --- !u!114 &6079567469254162815
 MonoBehaviour:
   m_ObjectHideFlags: 0
