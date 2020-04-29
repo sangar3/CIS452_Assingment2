@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FacesPlayer : MonoBehaviour
 {
-    Transform player;
+     Transform player;
 
     public float rotationSpeed = 90f;
 
