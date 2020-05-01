@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 492}
   m_MaxSize: {x: 22006, y: 14042}
   vertical: 0
-  controlID: 116
+  controlID: 47
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -636,19 +636,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Assets/Scripts/Strategy Design Pattern Scripts
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Assets/Scripts/Strategy Design Pattern Scripts
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Unity Code\CIS452_Assingment2\MiniGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 62350000
-    m_LastClickedID: 13666
+    m_SelectedIDs: 4c350000
+    m_LastClickedID: 13644
     m_ExpandedIDs: 000000004c3500004e3500006035000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300003e5f00007c5f0000685f0000805f0000862e00006e3800002c330000a030000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -819,7 +819,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6cfbffff
+      m_ExpandedIDs: acf0ffffc0f0ffff6cf1ffffb4f1ffffc0f1ffff6cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
